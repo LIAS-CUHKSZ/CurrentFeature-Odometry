@@ -134,4 +134,20 @@ This folder is an open-source candidate, not yet a polished public release:
 
 ## Citation
 
-If this code is useful, please cite the paper once the final bibliographic information is available.
+If this code or the exported data are useful, please cite:
+
+G. Zeng et al., "Bias-Eliminated PnP for Stereo Visual Odometry: Provably Consistent and Large-Scale Localization," in IEEE Robotics and Automation Letters, vol. 10, no. 11, pp. 11840-11847, Nov. 2025, doi: 10.1109/LRA.2025.3614050.
+
+```bibtex
+@article{zeng2025bias,
+  author={Zeng, G. and others},
+  journal={IEEE Robotics and Automation Letters},
+  title={Bias-Eliminated PnP for Stereo Visual Odometry: Provably Consistent and Large-Scale Localization},
+  year={2025},
+  volume={10},
+  number={11},
+  pages={11840-11847},
+  doi={10.1109/LRA.2025.3614050},
+  keywords={Uncertainty;Three-dimensional displays;Noise;Odometry;Cameras;Feature extraction;Accuracy;Pose estimation;Visual odometry;Translation;Stereo visual odometry;PnP pose estimation;large-scale localization;consistent estimator}
+}
+```

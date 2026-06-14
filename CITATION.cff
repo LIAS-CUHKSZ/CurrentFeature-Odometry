@@ -1,0 +1,34 @@
+cff-version: 1.2.0
+message: "If you use this code or the exported data, please cite the associated IEEE Robotics and Automation Letters paper."
+title: "CurrentFeature Odometry"
+authors:
+  - family-names: "Zeng"
+    given-names: "G."
+keywords:
+  - "Uncertainty"
+  - "Three-dimensional displays"
+  - "Noise"
+  - "Odometry"
+  - "Cameras"
+  - "Feature extraction"
+  - "Accuracy"
+  - "Pose estimation"
+  - "Visual odometry"
+  - "Translation"
+  - "Stereo visual odometry"
+  - "PnP pose estimation"
+  - "large-scale localization"
+  - "consistent estimator"
+preferred-citation:
+  type: article
+  authors:
+    - family-names: "Zeng"
+      given-names: "G."
+  title: "Bias-Eliminated PnP for Stereo Visual Odometry: Provably Consistent and Large-Scale Localization"
+  journal: "IEEE Robotics and Automation Letters"
+  year: 2025
+  volume: 10
+  issue: 11
+  start: 11840
+  end: 11847
+  doi: "10.1109/LRA.2025.3614050"
