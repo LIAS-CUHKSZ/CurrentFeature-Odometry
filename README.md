@@ -109,7 +109,13 @@ The repository tracks only these demo inputs:
 - `data/ov2slam_data/ov2slam_data_kitti_04_gray/`
 - `data/gt_poses/kitti_gt_pose/04.txt`
 
-The full exported data should be downloaded separately and extracted into `data/` with the same layout. Each `data/ov2slam_data/ov2slam_data_kitti_XX[_gray]` folder contains:
+The full exported data should be downloaded separately and extracted into `data/` with the same layout:
+
+```text
+https://ug.link/yuanas/filemgr/share-download/?id=61f195c8666048d4a85c719b77b7c7bd
+```
+
+Each `data/ov2slam_data/ov2slam_data_kitti_XX[_gray]` folder contains:
 
 - `ov2slam_pnp_data_seqXX.txt`: per-frame 2D tracks, associated 3D/map points, scales, point IDs, outlier flags,
 - `ov2slam_stereo_matches.txt`: stereo keyframe left/right matches and point IDs,
@@ -122,7 +128,7 @@ See [docs/DATA_FORMAT.md](docs/DATA_FORMAT.md) for details.
 This folder is an open-source candidate, not yet a polished public release:
 
 - Choose a license before publishing.
-- Upload the full exported data package to external storage and add the public download URL.
+- Confirm that the external full-data download link remains public and stable.
 - Confirm redistribution rights for the bundled demo and externally hosted data.
 - Clean mojibake comments in legacy MATLAB files if you want the source to look publication-ready.
 

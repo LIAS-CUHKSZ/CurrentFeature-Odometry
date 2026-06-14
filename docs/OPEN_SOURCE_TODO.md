@@ -4,7 +4,7 @@ Before publishing this folder publicly:
 
 1. Choose and add a license.
 2. Confirm redistribution rights for the bundled KITTI seq04 demo files and the externally hosted full data package.
-3. Upload the full OV2SLAM-exported data package to cloud storage and add the public download URL to `README.md` and `data/README.md`.
+3. Confirm that the full OV2SLAM-exported data package download link remains public and stable.
 4. Run at least one sequence from a clean MATLAB session:
 
    ```matlab

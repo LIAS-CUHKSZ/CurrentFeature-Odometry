@@ -11,7 +11,7 @@ Tracked demo files:
 The full exported data package is not tracked in Git. Download it from:
 
 ```text
-TODO: add public cloud download URL
+https://ug.link/yuanas/filemgr/share-download/?id=61f195c8666048d4a85c719b77b7c7bd
 ```
 
 After extracting the full package, the expected layout is:
