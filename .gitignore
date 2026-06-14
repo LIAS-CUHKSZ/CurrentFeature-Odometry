@@ -1,0 +1,35 @@
+# MATLAB temporary files
+*.asv
+*.m~
+*.autosave
+*.slxc
+
+# Local result artifacts
+results/*.mat
+results/*.xlsx
+results/*.xlsm
+results/*.fig
+results/*.png
+
+# Full datasets should be distributed outside Git. Keep only the small
+# KITTI seq04 demo tracked in this repository.
+data/ov2slam_data/*
+!data/ov2slam_data/ov2slam_data_kitti_04/
+!data/ov2slam_data/ov2slam_data_kitti_04/**
+!data/ov2slam_data/ov2slam_data_kitti_04_gray/
+!data/ov2slam_data/ov2slam_data_kitti_04_gray/**
+data/gt_poses/kitti_gt_pose/*
+!data/gt_poses/kitti_gt_pose/04.txt
+data/gt_poses/euroc_gt_pose/*
+data/baselines/*
+!data/baselines/README.md
+
+# Office and OS cache files
+~$*
+Thumbs.db
+.DS_Store
+
+# Large compressed archives should live in releases or external storage.
+*.zip
+*.7z
+*.rar
