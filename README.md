@@ -12,7 +12,6 @@ The included MATLAB pipeline does **not** run feature extraction from raw stereo
 
 - per-frame 2D feature tracks and point IDs,
 - stereo keyframe left/right matches,
-- OV2SLAM front-end trajectory poses,
 - KITTI/Oxford/EuRoC ground-truth or reference pose files where available.
 
 The runner re-estimates the relative pose of each current frame against the latest keyframe using CurrentFeature Odometry:
@@ -123,20 +122,11 @@ Each `data/ov2slam_data/ov2slam_data_kitti_XX[_gray]` folder contains:
 
 See [docs/DATA_FORMAT.md](docs/DATA_FORMAT.md) for details.
 
-## Important Release Notes
-
-This folder is an open-source candidate, not yet a polished public release:
-
-- Choose a license before publishing.
-- Confirm that the external full-data download link remains public and stable.
-- Confirm redistribution rights for the bundled demo and externally hosted data.
-- Clean mojibake comments in legacy MATLAB files if you want the source to look publication-ready.
-
 ## Citation
 
 If this code or the exported data are useful, please cite:
 
-G. Zeng et al., "Bias-Eliminated PnP for Stereo Visual Odometry: Provably Consistent and Large-Scale Localization," in IEEE Robotics and Automation Letters, vol. 10, no. 11, pp. 11840-11847, Nov. 2025, doi: 10.1109/LRA.2025.3614050.
+G. Zeng, Y. Shen, Z. Hong, Y. Hong, V. Ila, G. Shi, and J. Wu, "Bias-Eliminated PnP for Stereo Visual Odometry: Provably Consistent and Large-Scale Localization," IEEE Robotics and Automation Letters, vol. 10, no. 11, pp. 11840-11847, Nov. 2025.
 
 ```bibtex
 @article{zeng2025bias,
