@@ -60,6 +60,14 @@ docs/
 
 The main Bias-Eli-W PnP path uses `lsqnonlin` and `linprog`. The PCA-PnP fallback is called when fewer than 40 matches are available.
 
+## Paper Clarification: PnP TLS Threshold
+
+The PnP TLS threshold `5e-5` reported in Section VI-B.1 of the paper appears to be a typographical error. **For the released implementation, use `pnpTlsDelta = 1e3` (1000)**, which is already the default in [`scripts/run_kitti_currentfeature.m`](scripts/run_kitti_currentfeature.m).
+
+This threshold applies component-wise to the **whitened reprojection residual** during LM refinement, as implemented in [`weighted_pose_est_three_views_add_3D_uncertainty11.m`](src/pnp/weighted_pose_est_three_views_add_3D_uncertainty11.m). It is dimensionless and should not be interpreted as a pixel threshold. The separate epipolar BA threshold remains `baTlsDelta = 3e-4`.
+
+A residual check across 20 KITTI runs found that `1e3` clipped no recorded components at initialization or after LM refinement, while applying `5e-5` to those same residuals would clip more than 99.99% of components. These statistics use the initial and final residuals from runs with `pnpTlsDelta = 1e3`; they do not represent optimization with `5e-5` or cover intermediate LM trial steps.
+
 ## Quick Start
 
 Open MATLAB in the repository root and run:
