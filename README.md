@@ -60,20 +60,29 @@ docs/
 
 The main Bias-Eli-W PnP path uses `lsqnonlin` and `linprog`. The PCA-PnP fallback is called when fewer than 40 matches are available.
 
-## Reproducibility Note: PnP Versions and TLS Thresholds
+## Reproduction Notes for the Current Release
 
-An earlier version of this README described the paper's PnP TLS threshold `5e-5` as a suspected typographical error. **That interpretation is withdrawn:** historical code uses `5e-5` with a different PnP implementation and residual definition. The correspondence between code revisions and all paper tables has not yet been fully verified.
+**When reproducing this released implementation (PnP11) under the recorded configuration and environment, use the re-evaluated `released_pnp11` results in the [KITTI comparison](docs/reproducibility/kitti_version_comparison.json) as the reference outputs.** These results are specific to this code version; they are not replacement values for the published paper tables.
+
+For grayscale KITTI sequence 04, the paper values are not reproduced by the current release:
+
+| Source | Translation ATE, SE(3)-aligned (m) | Translation RPE, adjacent frames (m) |
+| --- | ---: | ---: |
+| Paper Table II | 0.726 | 0.0197 |
+| Current release, repeated and independently checked | **1.056770** | **0.0217528** |
+
+The paper's ATE has historical support: the archived trajectory gives `0.725646` m, and an isolated rerun of PnP7 from commit `71f6969` gives `0.725606` m with the same inputs, calibration, BA, and evaluation. The historical and current results therefore need to be identified by implementation version. The correspondence between implementations, the described method, and all paper experiments remains under review.
+
+The PnP TLS thresholds also belong to different residual definitions:
 
 | Implementation | Refinement residual | PnP TLS threshold |
 | --- | --- | --- |
 | Historical PnP7 at commit `71f6969` | Depth-weighted normalized reprojection error | `5e-5` |
 | Released PnP11 | Covariance-whitened reprojection error | `1e3` (1000) |
 
-These values are **not directly interchangeable**. The implementations also differ in pose initialization and feature selection. **For the released PnP11 implementation, retain its default `pnpTlsDelta = 1e3`** in [`scripts/run_kitti_currentfeature.m`](scripts/run_kitti_currentfeature.m). This component-wise threshold acts on whitened residuals, not pixel errors. The separate epipolar BA threshold remains `baTlsDelta = 3e-4`.
+These thresholds operate on different residual scales and are **not directly interchangeable**. For this release, retain the default `pnpTlsDelta = 1e3` in [`scripts/run_kitti_currentfeature.m`](scripts/run_kitti_currentfeature.m); the separate epipolar BA threshold is `baTlsDelta = 3e-4`. Pose initialization and feature selection also changed. This comparison does not isolate the contribution of the threshold or whitening to the trajectory difference.
 
-An isolated grayscale KITTI 04 comparison, keeping inputs, calibration, BA, and evaluation fixed, gives aligned translation ATE **0.725606 m** with historical PnP7 and **1.056770 m** with released PnP11. The archived historical trajectory gives **0.725646 m**, matching the paper's **0.726 m** after rounding. This verifies a version-dependent result; it does **not** establish PnP7 as the implementation of all methods or experiments described in the paper. See [reproducibility status and evidence](docs/REPRODUCIBILITY.md).
-
-A residual check across 20 released-PnP11 KITTI runs found that `1e3` clipped no recorded components at initialization or after LM refinement, while applying `5e-5` to those same residuals would clip more than 99.99% of components. These are counterfactual clipping statistics on the current whitened residuals, not an optimization run with `5e-5`, and exclude intermediate LM trial steps. They do not assess the historical depth-weighted residuals or establish a typo in the paper.
+Our earlier README interpretation of `5e-5` as a suspected typo is withdrawn. The evidence establishes a difference between historical and released **implementations**; the checked arXiv v1 and accepted manuscript both describe covariance-whitened refinement. See [reproducibility status, limitations, and evidence](docs/REPRODUCIBILITY.md) for comparison details and the scope of the residual statistics.
 
 ## Quick Start
 

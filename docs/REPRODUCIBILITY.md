@@ -4,7 +4,11 @@ Updated 2026-11-08. This note records verified code and experiment observations.
 
 The table comparison uses the locally available eight-page accepted manuscript. The separately checked [arXiv v1](https://arxiv.org/abs/2504.17410v1), dated 2025-04-24, has ten pages: its KITTI Table II contains the same values, but it has no KITTI ablation table. References below to Table III's KITTI ablation therefore refer to the accepted manuscript, not arXiv v1 (whose Table III is Oxford). The publisher version of record has not been independently checked.
 
-The table comparison uses the locally available eight-page accepted manuscript. The separately checked [arXiv v1](https://arxiv.org/abs/2504.17410v1), dated 2025-04-24, has ten pages: its KITTI Table II contains the same values, but it has no KITTI ablation table. References below to Table III's KITTI ablation therefore refer to the accepted manuscript, not arXiv v1 (whose Table III is Oxford). The publisher version of record has not been independently checked.
+## Reference results for the current release
+
+For reproduction of released PnP11, use the `released_pnp11` fields in the [version comparison](reproducibility/kitti_version_comparison.json), with the recorded inputs, parameters, and evaluation. In particular, grayscale KITTI 04 has translation ATE `1.056770` m and RPE `0.0217528` m in the checked environment. The paper's `0.726` m and `0.0197` m should not be used as expected outputs of this release.
+
+This recommendation concerns the current code's reference outputs. It neither invalidates the archived historical trajectory nor substitutes new measurements into the paper tables. The historical-to-current residual weighting change is verified in code; both inspected manuscripts describe covariance whitening, so a change in covariance definition between those two manuscripts is not established as its cause.
 
 ## Correction to the earlier README interpretation
 
@@ -20,6 +24,8 @@ The two versions additionally differ in initialization and feature selection:
 | PnP TLS threshold | `5e-5` | `1e3` |
 
 Consequently, changing only PnP11's threshold to `5e-5` does not reconstruct PnP7.
+
+For the released residual definition, a check across 20 KITTI runs found no recorded scalar components clipped by `1e3` at initialization or after LM refinement. Applying `5e-5` to those same whitened residuals would clip more than 99.99% of components. These counterfactual statistics exclude intermediate LM trial steps and do not represent either actual optimization with `5e-5` or an assessment of historical depth-weighted residuals.
 
 ## Controlled grayscale KITTI 04 check
 
