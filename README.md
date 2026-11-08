@@ -60,13 +60,20 @@ docs/
 
 The main Bias-Eli-W PnP path uses `lsqnonlin` and `linprog`. The PCA-PnP fallback is called when fewer than 40 matches are available.
 
-## Paper Clarification: PnP TLS Threshold
+## Reproducibility Note: PnP Versions and TLS Thresholds
 
-The PnP TLS threshold `5e-5` reported in Section VI-B.1 of the paper appears to be a typographical error. **For the released implementation, use `pnpTlsDelta = 1e3` (1000)**, which is already the default in [`scripts/run_kitti_currentfeature.m`](scripts/run_kitti_currentfeature.m).
+An earlier version of this README described the paper's PnP TLS threshold `5e-5` as a suspected typographical error. **That interpretation is withdrawn:** historical code uses `5e-5` with a different PnP implementation and residual definition. The correspondence between code revisions and all paper tables has not yet been fully verified.
 
-This threshold applies component-wise to the **whitened reprojection residual** during LM refinement, as implemented in [`weighted_pose_est_three_views_add_3D_uncertainty11.m`](src/pnp/weighted_pose_est_three_views_add_3D_uncertainty11.m). It is dimensionless and should not be interpreted as a pixel threshold. The separate epipolar BA threshold remains `baTlsDelta = 3e-4`.
+| Implementation | Refinement residual | PnP TLS threshold |
+| --- | --- | --- |
+| Historical PnP7 at commit `71f6969` | Depth-weighted normalized reprojection error | `5e-5` |
+| Released PnP11 | Covariance-whitened reprojection error | `1e3` (1000) |
 
-A residual check across 20 KITTI runs found that `1e3` clipped no recorded components at initialization or after LM refinement, while applying `5e-5` to those same residuals would clip more than 99.99% of components. These statistics use the initial and final residuals from runs with `pnpTlsDelta = 1e3`; they do not represent optimization with `5e-5` or cover intermediate LM trial steps.
+These values are **not directly interchangeable**. The implementations also differ in pose initialization and feature selection. **For the released PnP11 implementation, retain its default `pnpTlsDelta = 1e3`** in [`scripts/run_kitti_currentfeature.m`](scripts/run_kitti_currentfeature.m). This component-wise threshold acts on whitened residuals, not pixel errors. The separate epipolar BA threshold remains `baTlsDelta = 3e-4`.
+
+An isolated grayscale KITTI 04 comparison, keeping inputs, calibration, BA, and evaluation fixed, gives aligned translation ATE **0.725606 m** with historical PnP7 and **1.056770 m** with released PnP11. The archived historical trajectory gives **0.725646 m**, matching the paper's **0.726 m** after rounding. This verifies a version-dependent result; it does **not** establish PnP7 as the implementation of all methods or experiments described in the paper. See [reproducibility status and evidence](docs/REPRODUCIBILITY.md).
+
+A residual check across 20 released-PnP11 KITTI runs found that `1e3` clipped no recorded components at initialization or after LM refinement, while applying `5e-5` to those same residuals would clip more than 99.99% of components. These are counterfactual clipping statistics on the current whitened residuals, not an optimization run with `5e-5`, and exclude intermediate LM trial steps. They do not assess the historical depth-weighted residuals or establish a typo in the paper.
 
 ## Quick Start
 

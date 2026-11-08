@@ -1,0 +1,756 @@
+{
+  "date": "2026-11-08",
+  "paper_doi": "10.1109/LRA.2025.3614050",
+  "paper_comparison_source": "Locally available accepted manuscript, Table II and Table III; publisher version of record not independently checked.",
+  "arxiv_reference_check": {
+    "url": "https://arxiv.org/pdf/2504.17410",
+    "version": "v1, 2025-04-24",
+    "sha256": "2d0388e26755f675514af6221520054d6e9d53ec1d2eeb1364d19c1101aa32a9",
+    "pages": 10,
+    "note": "KITTI Table II values agree with the accepted manuscript; arXiv v1 has no KITTI ablation table. Its Table III is Oxford."
+  },
+  "historical_pnp7_commit": "71f6969e31993475096879be15f07f03aa5ed23d",
+  "released_repository_base_commit": "8cfafd3adebfbf3d97a5a8b1df68924e8b255f39",
+  "scope": "Uniform PnP7 + 5e-5 and PnP11 + 1000, same exported data/calibration/BA/evaluator. Neither is certified as a complete implementation of the published method.",
+  "metric": "Translation RMSE in metres; SE(3)-aligned ATE without scale fitting; adjacent-frame RPE.",
+  "configuration": {
+    "pnp7_tls": 5e-05,
+    "pnp11_tls": 1000,
+    "ba_tls": 0.0003,
+    "depth_range_m": [
+      0.5,
+      100
+    ],
+    "rng_seed": 0,
+    "matlab": "R2023a",
+    "single_computational_thread": true
+  },
+  "validation": {
+    "historical_runs_passed": 20,
+    "released_runs_passed": 20,
+    "missing_frames": 0,
+    "independent_mat_files_checked": 40,
+    "independent_translation_metrics_checked": 240,
+    "comparison_sha256": "21ea45f8a10ad58a2df4b4070de988ca17cc0545a59cdef995131e722b60a1f9",
+    "note": "Independent NumPy rigid alignment and adjacent-frame RPE; code/input hashes preserved. Includes before-BA, after-BA and exported OV2 metrics. Baseline algorithms were not independently rerun."
+  },
+  "summary": {
+    "historical_pnp7": {
+      "complete_count": 20,
+      "ba_ate_m_matches_printed_rounding": 13,
+      "ba_rpe_m_matches_printed_rounding": 17,
+      "modality_means": {
+        "color": {
+          "initial_ate_m": 9.838036624236434,
+          "initial_rpe_m": 0.030783916848931805,
+          "ba_ate_m": 3.4406739315916495,
+          "ba_rpe_m": 0.023791320819053434
+        },
+        "gray": {
+          "initial_ate_m": 14.888116374362763,
+          "initial_rpe_m": 0.023273485857928277,
+          "ba_ate_m": 2.1969841975769873,
+          "ba_rpe_m": 0.02000574312332455
+        }
+      }
+    },
+    "released_pnp11": {
+      "complete_count": 20,
+      "ba_ate_m_matches_printed_rounding": 0,
+      "ba_rpe_m_matches_printed_rounding": 1,
+      "modality_means": {
+        "color": {
+          "initial_ate_m": 9.05565175331438,
+          "initial_rpe_m": 0.029429545039604942,
+          "ba_ate_m": 3.1356522613808857,
+          "ba_rpe_m": 0.024323432084404833
+        },
+        "gray": {
+          "initial_ate_m": 7.237970287277387,
+          "initial_rpe_m": 0.021226827665079454,
+          "ba_ate_m": 2.247406363129196,
+          "ba_rpe_m": 0.019843056336026177
+        }
+      }
+    }
+  },
+  "rows": [
+    {
+      "id": "color_00",
+      "modality": "color",
+      "seq": 0,
+      "paper_ba_ate_m": 4.174,
+      "paper_ba_rpe_m": 0.0262,
+      "historical_pnp7": {
+        "status": "complete",
+        "poses": 4541,
+        "missing_frames": 0,
+        "initial_ate_m": 12.357455808714256,
+        "initial_rpe_m": 0.027539241832478658,
+        "ba_ate_m": 4.173660953607001,
+        "ba_rpe_m": 0.02622674337890378
+      },
+      "released_pnp11": {
+        "status": "complete",
+        "poses": 4541,
+        "missing_frames": 0,
+        "initial_ate_m": 22.473925039585104,
+        "initial_rpe_m": 0.02639102518227636,
+        "ba_ate_m": 4.531556111549506,
+        "ba_rpe_m": 0.02594736540221779
+      }
+    },
+    {
+      "id": "gray_00",
+      "modality": "gray",
+      "seq": 0,
+      "paper_ba_ate_m": 4.514,
+      "paper_ba_rpe_m": 0.026,
+      "historical_pnp7": {
+        "status": "complete",
+        "poses": 4541,
+        "missing_frames": 0,
+        "initial_ate_m": 41.24656070311726,
+        "initial_rpe_m": 0.02643971147030362,
+        "ba_ate_m": 4.515123489572111,
+        "ba_rpe_m": 0.025970927598111405
+      },
+      "released_pnp11": {
+        "status": "complete",
+        "poses": 4541,
+        "missing_frames": 0,
+        "initial_ate_m": 19.283133599453667,
+        "initial_rpe_m": 0.025989262351479022,
+        "ba_ate_m": 4.604901457596124,
+        "ba_rpe_m": 0.025797343488520155
+      },
+      "paper_initial_ate_m": 47.331,
+      "paper_initial_rpe_m": 0.0264
+    },
+    {
+      "id": "color_02",
+      "modality": "color",
+      "seq": 2,
+      "paper_ba_ate_m": 5.756,
+      "paper_ba_rpe_m": 0.0257,
+      "historical_pnp7": {
+        "status": "complete",
+        "poses": 4661,
+        "missing_frames": 0,
+        "initial_ate_m": 14.55048068151209,
+        "initial_rpe_m": 0.028245672917905557,
+        "ba_ate_m": 5.754429103635435,
+        "ba_rpe_m": 0.025658593304641267
+      },
+      "released_pnp11": {
+        "status": "complete",
+        "poses": 4661,
+        "missing_frames": 0,
+        "initial_ate_m": 31.638491331863218,
+        "initial_rpe_m": 0.02649117864053697,
+        "ba_ate_m": 3.086669394745595,
+        "ba_rpe_m": 0.025308528482100228
+      }
+    },
+    {
+      "id": "gray_02",
+      "modality": "gray",
+      "seq": 2,
+      "paper_ba_ate_m": 3.9,
+      "paper_ba_rpe_m": 0.0257,
+      "historical_pnp7": {
+        "status": "complete",
+        "poses": 4661,
+        "missing_frames": 0,
+        "initial_ate_m": 53.077876815798845,
+        "initial_rpe_m": 0.026692326256940485,
+        "ba_ate_m": 3.8996018231613805,
+        "ba_rpe_m": 0.025657572426756287
+      },
+      "released_pnp11": {
+        "status": "complete",
+        "poses": 4661,
+        "missing_frames": 0,
+        "initial_ate_m": 24.84838805143526,
+        "initial_rpe_m": 0.025273019440527275,
+        "ba_ate_m": 3.91066587035932,
+        "ba_rpe_m": 0.0251790133778399
+      },
+      "paper_initial_ate_m": 66.528,
+      "paper_initial_rpe_m": 0.0262
+    },
+    {
+      "id": "color_03",
+      "modality": "color",
+      "seq": 3,
+      "paper_ba_ate_m": 0.551,
+      "paper_ba_rpe_m": 0.0148,
+      "historical_pnp7": {
+        "status": "complete",
+        "poses": 801,
+        "missing_frames": 0,
+        "initial_ate_m": 4.733937202257329,
+        "initial_rpe_m": 0.024688963141292243,
+        "ba_ate_m": 0.5517215689847785,
+        "ba_rpe_m": 0.014806362485611513
+      },
+      "released_pnp11": {
+        "status": "complete",
+        "poses": 801,
+        "missing_frames": 0,
+        "initial_ate_m": 4.183110851335735,
+        "initial_rpe_m": 0.0243191924452854,
+        "ba_ate_m": 0.44229670538193266,
+        "ba_rpe_m": 0.014855540627615947
+      }
+    },
+    {
+      "id": "gray_03",
+      "modality": "gray",
+      "seq": 3,
+      "paper_ba_ate_m": 1.03,
+      "paper_ba_rpe_m": 0.0158,
+      "historical_pnp7": {
+        "status": "complete",
+        "poses": 801,
+        "missing_frames": 0,
+        "initial_ate_m": 1.1007337211905108,
+        "initial_rpe_m": 0.0178483849142209,
+        "ba_ate_m": 1.0295940214094226,
+        "ba_rpe_m": 0.015802136092009072
+      },
+      "released_pnp11": {
+        "status": "complete",
+        "poses": 801,
+        "missing_frames": 0,
+        "initial_ate_m": 1.1016311637724567,
+        "initial_rpe_m": 0.015775940362506992,
+        "ba_ate_m": 1.009251570810457,
+        "ba_rpe_m": 0.015618793427615808
+      },
+      "paper_initial_ate_m": 1.171,
+      "paper_initial_rpe_m": 0.0177
+    },
+    {
+      "id": "color_04",
+      "modality": "color",
+      "seq": 4,
+      "paper_ba_ate_m": 2.328,
+      "paper_ba_rpe_m": 0.0353,
+      "historical_pnp7": {
+        "status": "complete",
+        "poses": 271,
+        "missing_frames": 0,
+        "initial_ate_m": 3.813246628676986,
+        "initial_rpe_m": 0.051615781293325044,
+        "ba_ate_m": 2.3283396105035385,
+        "ba_rpe_m": 0.03532277874965362
+      },
+      "released_pnp11": {
+        "status": "complete",
+        "poses": 271,
+        "missing_frames": 0,
+        "initial_ate_m": 3.6473215475947884,
+        "initial_rpe_m": 0.04941633837014254,
+        "ba_ate_m": 2.7173520595327063,
+        "ba_rpe_m": 0.0394273081066036
+      }
+    },
+    {
+      "id": "gray_04",
+      "modality": "gray",
+      "seq": 4,
+      "paper_ba_ate_m": 0.726,
+      "paper_ba_rpe_m": 0.0197,
+      "historical_pnp7": {
+        "status": "complete",
+        "poses": 271,
+        "missing_frames": 0,
+        "initial_ate_m": 1.9352509255233303,
+        "initial_rpe_m": 0.029794492531651826,
+        "ba_ate_m": 0.7256058425023755,
+        "ba_rpe_m": 0.01964576527022114
+      },
+      "released_pnp11": {
+        "status": "complete",
+        "poses": 271,
+        "missing_frames": 0,
+        "initial_ate_m": 1.4390542733731317,
+        "initial_rpe_m": 0.02457415052798512,
+        "ba_ate_m": 1.0567701628692656,
+        "ba_rpe_m": 0.021752766904170166
+      },
+      "paper_initial_ate_m": 2.037,
+      "paper_initial_rpe_m": 0.0301
+    },
+    {
+      "id": "color_05",
+      "modality": "color",
+      "seq": 5,
+      "paper_ba_ate_m": 3.332,
+      "paper_ba_rpe_m": 0.0178,
+      "historical_pnp7": {
+        "status": "complete",
+        "poses": 2761,
+        "missing_frames": 0,
+        "initial_ate_m": 15.546132853634182,
+        "initial_rpe_m": 0.025785182174427435,
+        "ba_ate_m": 3.3324652915235573,
+        "ba_rpe_m": 0.017802536206703586
+      },
+      "released_pnp11": {
+        "status": "complete",
+        "poses": 2761,
+        "missing_frames": 0,
+        "initial_ate_m": 4.756622346589383,
+        "initial_rpe_m": 0.023292056861628704,
+        "ba_ate_m": 3.3416634890603274,
+        "ba_rpe_m": 0.0180524055063645
+      }
+    },
+    {
+      "id": "gray_05",
+      "modality": "gray",
+      "seq": 5,
+      "paper_ba_ate_m": 2.403,
+      "paper_ba_rpe_m": 0.0124,
+      "historical_pnp7": {
+        "status": "complete",
+        "poses": 2761,
+        "missing_frames": 0,
+        "initial_ate_m": 13.38627243996465,
+        "initial_rpe_m": 0.01708929646496731,
+        "ba_ate_m": 2.403212818103995,
+        "ba_rpe_m": 0.012424775300197246
+      },
+      "released_pnp11": {
+        "status": "complete",
+        "poses": 2761,
+        "missing_frames": 0,
+        "initial_ate_m": 4.462965439446587,
+        "initial_rpe_m": 0.013687326057545256,
+        "ba_ate_m": 2.2773912718025673,
+        "ba_rpe_m": 0.012305660512930023
+      },
+      "paper_initial_ate_m": 16.915,
+      "paper_initial_rpe_m": 0.016
+    },
+    {
+      "id": "color_06",
+      "modality": "color",
+      "seq": 6,
+      "paper_ba_ate_m": 2.4,
+      "paper_ba_rpe_m": 0.0187,
+      "historical_pnp7": {
+        "status": "complete",
+        "poses": 1101,
+        "missing_frames": 0,
+        "initial_ate_m": 10.347479363878696,
+        "initial_rpe_m": 0.032755279836712725,
+        "ba_ate_m": 2.399926808977918,
+        "ba_rpe_m": 0.018714741645027823
+      },
+      "released_pnp11": {
+        "status": "complete",
+        "poses": 1101,
+        "missing_frames": 0,
+        "initial_ate_m": 7.590814144482755,
+        "initial_rpe_m": 0.03376465267905875,
+        "ba_ate_m": 2.3932613273727434,
+        "ba_rpe_m": 0.019657365828138998
+      }
+    },
+    {
+      "id": "gray_06",
+      "modality": "gray",
+      "seq": 6,
+      "paper_ba_ate_m": 1.859,
+      "paper_ba_rpe_m": 0.0138,
+      "historical_pnp7": {
+        "status": "complete",
+        "poses": 1101,
+        "missing_frames": 0,
+        "initial_ate_m": 11.842854268919757,
+        "initial_rpe_m": 0.0177833096326046,
+        "ba_ate_m": 1.8588526658767575,
+        "ba_rpe_m": 0.013841164300955456
+      },
+      "released_pnp11": {
+        "status": "complete",
+        "poses": 1101,
+        "missing_frames": 0,
+        "initial_ate_m": 2.1301636156577564,
+        "initial_rpe_m": 0.016907578507897397,
+        "ba_ate_m": 1.7849998114856425,
+        "ba_rpe_m": 0.013177027624712331
+      },
+      "paper_initial_ate_m": 8.023,
+      "paper_initial_rpe_m": 0.0179
+    },
+    {
+      "id": "color_07",
+      "modality": "color",
+      "seq": 7,
+      "paper_ba_ate_m": 1.593,
+      "paper_ba_rpe_m": 0.0175,
+      "historical_pnp7": {
+        "status": "complete",
+        "poses": 1101,
+        "missing_frames": 0,
+        "initial_ate_m": 5.612557779215389,
+        "initial_rpe_m": 0.02127327857747738,
+        "ba_ate_m": 1.6682879141202642,
+        "ba_rpe_m": 0.016710587437013036
+      },
+      "released_pnp11": {
+        "status": "complete",
+        "poses": 1101,
+        "missing_frames": 0,
+        "initial_ate_m": 2.25757752469694,
+        "initial_rpe_m": 0.01911485542414186,
+        "ba_ate_m": 1.7468722451015817,
+        "ba_rpe_m": 0.01677999030171463
+      }
+    },
+    {
+      "id": "gray_07",
+      "modality": "gray",
+      "seq": 7,
+      "paper_ba_ate_m": 1.281,
+      "paper_ba_rpe_m": 0.0123,
+      "historical_pnp7": {
+        "status": "complete",
+        "poses": 1101,
+        "missing_frames": 0,
+        "initial_ate_m": 5.156032236649852,
+        "initial_rpe_m": 0.014696694673649665,
+        "ba_ate_m": 1.2999791610912763,
+        "ba_rpe_m": 0.012252097974742015
+      },
+      "released_pnp11": {
+        "status": "complete",
+        "poses": 1101,
+        "missing_frames": 0,
+        "initial_ate_m": 3.854348107852714,
+        "initial_rpe_m": 0.012037109168052434,
+        "ba_ate_m": 1.3956533473677717,
+        "ba_rpe_m": 0.011918341800660034
+      },
+      "paper_initial_ate_m": 5.608,
+      "paper_initial_rpe_m": 0.0165
+    },
+    {
+      "id": "color_08",
+      "modality": "color",
+      "seq": 8,
+      "paper_ba_ate_m": 5.866,
+      "paper_ba_rpe_m": 0.0397,
+      "historical_pnp7": {
+        "status": "complete",
+        "poses": 4071,
+        "missing_frames": 0,
+        "initial_ate_m": 8.931519176950681,
+        "initial_rpe_m": 0.04265259647516122,
+        "ba_ate_m": 5.866779791327375,
+        "ba_rpe_m": 0.03971078328172656
+      },
+      "released_pnp11": {
+        "status": "complete",
+        "poses": 4071,
+        "missing_frames": 0,
+        "initial_ate_m": 5.567097702766,
+        "initial_rpe_m": 0.04148873699250029,
+        "ba_ate_m": 5.414905243895064,
+        "ba_rpe_m": 0.03974929801190178
+      }
+    },
+    {
+      "id": "gray_08",
+      "modality": "gray",
+      "seq": 8,
+      "paper_ba_ate_m": 3.43,
+      "paper_ba_rpe_m": 0.0392,
+      "historical_pnp7": {
+        "status": "complete",
+        "poses": 4071,
+        "missing_frames": 0,
+        "initial_ate_m": 11.6673736791601,
+        "initial_rpe_m": 0.039990968187175804,
+        "ba_ate_m": 3.430424724475563,
+        "ba_rpe_m": 0.03917264814358472
+      },
+      "released_pnp11": {
+        "status": "complete",
+        "poses": 4071,
+        "missing_frames": 0,
+        "initial_ate_m": 8.281430606623552,
+        "initial_rpe_m": 0.03749571393649547,
+        "ba_ate_m": 3.6530589023065696,
+        "ba_rpe_m": 0.0375137693603267
+      },
+      "paper_initial_ate_m": 16.289,
+      "paper_initial_rpe_m": 0.0399
+    },
+    {
+      "id": "color_09",
+      "modality": "color",
+      "seq": 9,
+      "paper_ba_ate_m": 5.245,
+      "paper_ba_rpe_m": 0.0234,
+      "historical_pnp7": {
+        "status": "complete",
+        "poses": 1591,
+        "missing_frames": 0,
+        "initial_ate_m": 16.469211359199154,
+        "initial_rpe_m": 0.030165963535317156,
+        "ba_ate_m": 5.242842508603792,
+        "ba_rpe_m": 0.02334750412773298
+      },
+      "released_pnp11": {
+        "status": "complete",
+        "poses": 1591,
+        "missing_frames": 0,
+        "initial_ate_m": 4.775448278298576,
+        "initial_rpe_m": 0.02832107962768392,
+        "ba_ate_m": 4.621301823408941,
+        "ba_rpe_m": 0.023755324990901373
+      }
+    },
+    {
+      "id": "gray_09",
+      "modality": "gray",
+      "seq": 9,
+      "paper_ba_ate_m": 2.169,
+      "paper_ba_rpe_m": 0.0181,
+      "historical_pnp7": {
+        "status": "complete",
+        "poses": 1591,
+        "missing_frames": 0,
+        "initial_ate_m": 7.689489799954412,
+        "initial_rpe_m": 0.02407605217922466,
+        "ba_ate_m": 2.169024060737802,
+        "ba_rpe_m": 0.0180520209706363
+      },
+      "released_pnp11": {
+        "status": "complete",
+        "poses": 1591,
+        "missing_frames": 0,
+        "initial_ate_m": 5.8640542713131065,
+        "initial_rpe_m": 0.02319829994766917,
+        "ba_ate_m": 2.127105390635468,
+        "ba_rpe_m": 0.018047841900740883
+      },
+      "paper_initial_ate_m": 10.135,
+      "paper_initial_rpe_m": 0.025
+    },
+    {
+      "id": "color_10",
+      "modality": "color",
+      "seq": 10,
+      "paper_ba_ate_m": 3.088,
+      "paper_ba_rpe_m": 0.0196,
+      "historical_pnp7": {
+        "status": "complete",
+        "poses": 1201,
+        "missing_frames": 0,
+        "initial_ate_m": 6.018345388325572,
+        "initial_rpe_m": 0.023117208705220618,
+        "ba_ate_m": 3.088285764632835,
+        "ba_rpe_m": 0.019612577573520158
+      },
+      "released_pnp11": {
+        "status": "complete",
+        "poses": 1201,
+        "missing_frames": 0,
+        "initial_ate_m": 3.6661087659313134,
+        "initial_rpe_m": 0.02169633417279462,
+        "ba_ate_m": 3.060644213760459,
+        "ba_rpe_m": 0.01970119358648949
+      }
+    },
+    {
+      "id": "gray_10",
+      "modality": "gray",
+      "seq": 10,
+      "paper_ba_ate_m": 0.638,
+      "paper_ba_rpe_m": 0.0172,
+      "historical_pnp7": {
+        "status": "complete",
+        "poses": 1201,
+        "missing_frames": 0,
+        "initial_ate_m": 1.7787191533489215,
+        "initial_rpe_m": 0.018323622268543897,
+        "ba_ate_m": 0.6384233688391872,
+        "ba_rpe_m": 0.017238323156031878
+      },
+      "released_pnp11": {
+        "status": "complete",
+        "poses": 1201,
+        "missing_frames": 0,
+        "initial_ate_m": 1.1145337438456342,
+        "initial_rpe_m": 0.017329876350636403,
+        "ba_ate_m": 0.6542658460587745,
+        "ba_rpe_m": 0.017120004962745773
+      },
+      "paper_initial_ate_m": 2.082,
+      "paper_initial_rpe_m": 0.0184
+    }
+  ],
+  "source_sha256": {
+    "src/ba/Epipolar_BA_Multi.m": "7128294096d9c2d5db4a1f800733b70c1e39e3e5a4a53284703d30bd03ad066a",
+    "src/baselines/pca_pnp/kapa_fun.m": "eb7b4353d32cb8cab7d95840d36e5b1159e310efbe95b7d11f818cc9e32c6207",
+    "src/baselines/pca_pnp/PnP_PCA.m": "3ec4f1ac66f3fc7f8dd61032c0393771d9b3a5c324a9856a58e94b8a7e0ab46a",
+    "src/baselines/pca_pnp/solve_three_quadrics_with_Q.m": "75a7c6ef17eb0535429238c09b3bf461865aabf0434d05b763e01de42db25e64",
+    "src/eval/alignTrajectorySE3.m": "b981b77339c3dc18be847dc18f20610cb28b5c13a4d55770e825dc5183e0d0f0",
+    "src/eval/calculate_ate.m": "93007c2e2c97587c9f50a32af025d4d468c44b97d7c101013d71ac712c9b45cb",
+    "src/eval/calculate_rpe.m": "fcc9cbab69a64c44e3d2062fe0f50ee5a022cfd141d8352a4094f43ccaa38a26",
+    "src/eval/write_metrics_to_excel.m": "87e2b75e9a3b0d27f8d3ae9e046fd0b4d5b362b9b916e4ea2c8e26c4eed2ccbc",
+    "src/io/read_euroc_pose.m": "f1b6126b6ef057469acf853549da609cd9c3f1bb6c52584b631724f2479f67f8",
+    "src/io/read_kitti_pose.m": "b22934f2021debd3e5b55fb85c2fb941556f5626adfef44345961e5d548d92df",
+    "src/io/read_ov2slam_data.m": "e9ded4cf6083e437081b4f2c82da137fd3c66192b2046295ad76cf031c52b006",
+    "src/io/read_stereo_matches.m": "89389a8fb912a528c0491fbeb330761d4c66ecf9aa0f7f8787515598789e2729",
+    "src/pnp/EIV_PnP2.m": "a2c62b34b9c9cde9b59901632a784ecf3b6fbffda4c197124086d6a8a30e8e8e",
+    "src/pnp/L1_norm_opt_lp.m": "ccc6cc1b053df0b886f7f6e0e367c0286e413812bfe5f34e99001576af07d19c",
+    "src/pnp/L1_norm_PnP.m": "2e807f95aec787006f7c5d94ca043310d630f73c43cf033e07b384bb658d3d91",
+    "src/pnp/uncertain_aware_triangulation2_used.m": "7fec8babce0a65b29b7bb2522f31f5961dd796513e3e1ea8159be49f1efcc50f",
+    "src/pnp/weighted_pose_est_three_views_add_3D_uncertainty11.m": "07aa5c3f7c5fc26ebe04e95fe025dd1d10b59f3ec494153675a092653a4603d5",
+    "src/utils/anti_skew_symmetric.m": "bd2b5d98d7567da02e97a71466c1d1648640ef25754700551a53408e397aee0e",
+    "src/utils/pro_to_SO3.m": "f085d59f13f2d6a83d609eb74e73e9a0cc5e8b9854e556ac47ea3d65768d5574",
+    "src/utils/skew_symmetric.m": "99c39edad3498dbbf9fd7271f88e67b444d7f8ab7ac84f002acc5150c3b5b7e2",
+    "scripts/run_batch_kitti.m": "1686ec0d0b00140242a6c7ef8e2c55e2ad7c850a62a94f30f370ca6743e7a059",
+    "scripts/run_kitti_currentfeature.m": "ecc594a7d2ee946c3259cb304115829535ae005b385df44c897ff84c4a131e0d",
+    "isolated_historical_check/weighted_pose_est_three_views_add_3D_uncertainty7.m": "d83ea3239c9f6ce2c3c8ae821c8864be3c118a745ad23a1a5e2ce5936577cc4d",
+    "isolated_historical_check/run_kitti_historical_pnp7.m": "5c6f2060fea3cf59f27e8e442a05e37d18756003835a77558b3eb1b0741693c1",
+    "isolated_historical_check/run_pnp7_audit_worker.m": "8e36d3d387bdc9735791ae87105d01deba9edb55e136c6614f42cc3f7dae1a44"
+  },
+  "inputs_sha256": {
+    "color_04": {
+      "ov2slam_pnp_data_seq04.txt": "28f0c4566edb2052bd21b6d5ad48a6be7f045241f00e8765cad227cc31e2bf00",
+      "ov2slam_stereo_matches.txt": "6404fa3824d73135c8aab97a237a77162520bfa39038946676e97f84ba22f7ae",
+      "ov2slam_front_end_pose_data.txt": "7612c98b3aa27a072dbcebbe3e4cc8e85231f5be44015f652f0a0eeb532b2191",
+      "04.txt": "1687ed73ba7d3f99d78868874263552676aad3a605aa73a064d3074beed1367d"
+    },
+    "gray_04": {
+      "ov2slam_pnp_data_seq04.txt": "78a2f2efb9f0d1675b6283691a9d9abb3c0f105da3a66e76160f031e094c5b97",
+      "ov2slam_stereo_matches.txt": "eb1320ff1d232e9aaee06522185acea8176b5e4c579435b2f3f79fd0ea810f9b",
+      "ov2slam_front_end_pose_data.txt": "48fc667e6bf3a62902a6d45665a60a3d1016dda1f546846df86e5ddbba930307",
+      "04.txt": "1687ed73ba7d3f99d78868874263552676aad3a605aa73a064d3074beed1367d"
+    },
+    "color_02": {
+      "ov2slam_pnp_data_seq02.txt": "4985fa112a526dea53168353ca2f56a6807d2241711ca2fc5031bb7345e25401",
+      "ov2slam_stereo_matches.txt": "47cbbb716fa2838589db5b2b42ede34656ada7d308c407db19cf88c105159838",
+      "ov2slam_front_end_pose_data.txt": "f6fae90bd099a41582971c11bd40ebd38c542a00b4d782d46b5786b83ab07bd0",
+      "02.txt": "339bbd528c89f64ca863bcf1d6d6977b38ea07d1dfaa1c37d1a7d0822dad32da"
+    },
+    "gray_02": {
+      "ov2slam_pnp_data_seq02.txt": "cfe5adcc89f4de833f338b63d2b435cffc39b3c6a265f1ec50f01698f50d9078",
+      "ov2slam_stereo_matches.txt": "19702924ca3eebc278f410f9daba1bf6f6eb650bf70243cf6f42229297a0cdfd",
+      "ov2slam_front_end_pose_data.txt": "65e7c8db2068fef07caa5148d04bec603c034bed949c745681d7ac51966767a0",
+      "02.txt": "339bbd528c89f64ca863bcf1d6d6977b38ea07d1dfaa1c37d1a7d0822dad32da"
+    },
+    "color_00": {
+      "ov2slam_pnp_data_seq00.txt": "4d0f788a3ed839fad5283f74b1a625767a40352fadda20805aa6fcffd2ddd1d2",
+      "ov2slam_stereo_matches.txt": "2485282297071cc4e7cddc60176b9e8067cf5ea98602f57663e5fbee7ae3f321",
+      "ov2slam_front_end_pose_data.txt": "195c231f4e9edda9413d7e0d4f0c613849b2d392ea2f1a7d40091381b3eae352",
+      "00.txt": "4ca38a09cc62a40572c587c90c9e5f88fae70a7a60b8e519bb7ac4429db2cc98"
+    },
+    "gray_00": {
+      "ov2slam_pnp_data_seq00.txt": "5cf734569d9865abf5dcc574b7c74efce826056a7c09aa65f20d0c3130354611",
+      "ov2slam_stereo_matches.txt": "be4c1d86b1f1156127390a353eeb078bd363b37268d858db7182da6b8ed3550c",
+      "ov2slam_front_end_pose_data.txt": "d143a6ec0a20827a0749c9a93e555e9613c8ae7cca0ab3d4dd69f7f82ee90803",
+      "00.txt": "4ca38a09cc62a40572c587c90c9e5f88fae70a7a60b8e519bb7ac4429db2cc98"
+    },
+    "color_08": {
+      "ov2slam_pnp_data_seq08.txt": "c85ebeaba93092693b29db7b66f51ad04e777eb5925bcff61162f4340658cb9d",
+      "ov2slam_stereo_matches.txt": "2c6bcbffb68b99418bc35ca4f90dadc26253e5d745e6a1afc8172efd9f660a44",
+      "ov2slam_front_end_pose_data.txt": "11d26405a5720bea1b3d03778076ce5ff1d57dc07af6f73da1dcf5967a807b85",
+      "08.txt": "b7d6a00f7cb531f1fdc888d9a9bc57bb427a32fee648a94b038bafe47908f82b"
+    },
+    "gray_08": {
+      "ov2slam_pnp_data_seq08.txt": "9547e6be817e03db604d1aa5968e9e1ee5182d2e1ca9d980076ba8010bda76b6",
+      "ov2slam_stereo_matches.txt": "2706d6607df6f96db5ea95a6a35c63c3bf6e95f7e00738caf313bcabb93423ae",
+      "ov2slam_front_end_pose_data.txt": "33e2363b2b7ad82efd2f72aa8f73728eb20d6e9f7cc60acc6c46d83fc8adde04",
+      "08.txt": "b7d6a00f7cb531f1fdc888d9a9bc57bb427a32fee648a94b038bafe47908f82b"
+    },
+    "color_05": {
+      "ov2slam_pnp_data_seq05.txt": "41d48c13a928eed69425599b19c80e9f71b2897a9eb31bb6f902a4666ffd84d6",
+      "ov2slam_stereo_matches.txt": "8c741d27ce5f177bf40e43d344cfe31c5fef60ba2351479240f8e4a8914a01a1",
+      "ov2slam_front_end_pose_data.txt": "f0512db0aa8533b2866dffebe54281332810ce41b56e9074b65a44bed1d1ba62",
+      "05.txt": "f59f6fc501ac946f585fd2f6612e86ce047782fa5f07e798d6bb5e63ca8a94aa"
+    },
+    "gray_05": {
+      "ov2slam_pnp_data_seq05.txt": "843c05ee88e5b98ff2d00544b9ce2f0cd877386b6effdeed860722bff490d4bc",
+      "ov2slam_stereo_matches.txt": "801942e26edbad2f9bc0a93cbbfdc75f5354a6a8e1e1c1c00d73b42dc211643e",
+      "ov2slam_front_end_pose_data.txt": "4a0b7a6ccd93bcac6edf06a6d72ccc7ea82bad56edd7dae46a88e41cf20d10ae",
+      "05.txt": "f59f6fc501ac946f585fd2f6612e86ce047782fa5f07e798d6bb5e63ca8a94aa"
+    },
+    "color_09": {
+      "ov2slam_pnp_data_seq09.txt": "31362fac31e015b0ecb81fade0f05bb49d3483e5edf652bae789fac1efb1a359",
+      "ov2slam_stereo_matches.txt": "5e0658d9d635a9cc83e8fc0d9a373a65993afdfcb3ce9666bdb71170a503e97a",
+      "ov2slam_front_end_pose_data.txt": "dcb7a5303dce3cbdd254456b9717653cd43e8496fb403541c0c381e0597b00d7",
+      "09.txt": "b9d251b71705fe2e2fcb4ecc337a2d7a72db01d7691ba72806875525692c2cf7"
+    },
+    "gray_09": {
+      "ov2slam_pnp_data_seq09.txt": "f01c5ee15260622c334c5e58670a312955e586d189d28e5500579bf23f931fb2",
+      "ov2slam_stereo_matches.txt": "64bd4cd57ea0f3d84978bdab4daed5796a6dc7665764b813b903155efa4ed87e",
+      "ov2slam_front_end_pose_data.txt": "98026448bf25c87a033049b0268812357d5c02a03af8b017cee0994b14e91a99",
+      "09.txt": "b9d251b71705fe2e2fcb4ecc337a2d7a72db01d7691ba72806875525692c2cf7"
+    },
+    "color_10": {
+      "ov2slam_pnp_data_seq10.txt": "f737220659fb23fa38f7c912b3a962d4d19104e0804b2f40dd142a3fcafe94f4",
+      "ov2slam_stereo_matches.txt": "9dcf97607c606e705857e258157501805079ba7cab72cc150262213ee5eca686",
+      "ov2slam_front_end_pose_data.txt": "d239db4c86b19603b1c9b7cbb9d48b6d247fd90a5733d7ee855ed6d87be69e25",
+      "10.txt": "28e9f746ccfced16223e100230989ccc5fe3d29df672ac10c3d50eff1c2624b7"
+    },
+    "gray_10": {
+      "ov2slam_pnp_data_seq10.txt": "73faaab3155908848b3885e154fc09c7a0bfca4fca2f2df90e18391540cf4d72",
+      "ov2slam_stereo_matches.txt": "f63b58530eaa4326fa2afd90b3715d7d2a5f43409586d3e39aa82900057cf4be",
+      "ov2slam_front_end_pose_data.txt": "c53bf54d672799e5d84ea7dda89ef7f6953cf702d24789e3a21ef3b31c466f60",
+      "10.txt": "28e9f746ccfced16223e100230989ccc5fe3d29df672ac10c3d50eff1c2624b7"
+    },
+    "color_06": {
+      "ov2slam_pnp_data_seq06.txt": "b0e11c6d810c49e838b829fcf5ebe63a58749553ab45208f9d73b25a0a1e0674",
+      "ov2slam_stereo_matches.txt": "51b0d47cfdd8733564a7f699efd21a3a403d3f1dbb0633c4de72e4161c9db496",
+      "ov2slam_front_end_pose_data.txt": "90f2807a752419edfb9bfca4b5001ee90e4dbb85d41daf7a8df618afded51eb2",
+      "06.txt": "3583a8bdd1c2b3eff1476b7f68e02c72f7c1fcf1fbee855006fd8b811495f4c3"
+    },
+    "color_07": {
+      "ov2slam_pnp_data_seq07.txt": "abd7f1cc430f74a39c3ae871a8097fa5fc0013ba4bbbee875d3012241c2552c9",
+      "ov2slam_stereo_matches.txt": "cf1b0ae13c63326e251e4054cc27f6ba21d6c70fdd78df5295506733f4e9ab98",
+      "ov2slam_front_end_pose_data.txt": "382118c23c54535da028d2f3b37488139551a5776a7f98945ed23b4e093ee575",
+      "07.txt": "eb6fd00b85aaffc29dac3a70480e41bc8093f9b15f7e5f544d33ead72f92f7bb"
+    },
+    "gray_06": {
+      "ov2slam_pnp_data_seq06.txt": "b59ff36e0e61f2b7e893dad629ac0af1aadfc2d4890cab861637e5f345911b0f",
+      "ov2slam_stereo_matches.txt": "8168fdbf3cb340b738abe33282916e97a4c66b4ef475140d6b075f227b0d58c6",
+      "ov2slam_front_end_pose_data.txt": "be540eb0263708c5ca9b72ea6dd46d67421e7525cefee7926d6de555a1cb15fc",
+      "06.txt": "3583a8bdd1c2b3eff1476b7f68e02c72f7c1fcf1fbee855006fd8b811495f4c3"
+    },
+    "gray_07": {
+      "ov2slam_pnp_data_seq07.txt": "92dea26e6e255b3d2f9390e23797f65772042e8f6157da44b9f430a1bee19cf5",
+      "ov2slam_stereo_matches.txt": "73a53d31de2084207a8d50d4fe2329cca1398471f224baafb290f5d67f454f43",
+      "ov2slam_front_end_pose_data.txt": "c577ca868f5a01c730abac10f1ec88fb71b43b5a5d51a78b208b8bd87db44da9",
+      "07.txt": "eb6fd00b85aaffc29dac3a70480e41bc8093f9b15f7e5f544d33ead72f92f7bb"
+    },
+    "color_03": {
+      "ov2slam_pnp_data_seq03.txt": "cae49323fe566be390275e4d119dd07754571707018ee95c190ada8b7b8a85f7",
+      "ov2slam_stereo_matches.txt": "239b87696e6134700afd9fa0364b6af3a02b64d48d0aa825d3152df612c303ac",
+      "ov2slam_front_end_pose_data.txt": "bf9b8d65a065e030118aafa56e8067159b905e887629db798c9e66cf24f5a73e",
+      "03.txt": "08b1188842a19921dd22212d575e345886e1ad01426766f416da04072d45e420"
+    },
+    "gray_03": {
+      "ov2slam_pnp_data_seq03.txt": "c335afac6c21f07c56650ada7fde813fbc728601b6ad703d64812fae98c3a42e",
+      "ov2slam_stereo_matches.txt": "d12f86edd9872ecdd3b3466555daa8a9af9263d65165d98c38a72bccb20ab3c1",
+      "ov2slam_front_end_pose_data.txt": "93fb692964b8a094c736066c4d6c2230497a4f2a42b3f232e7433487d279542b",
+      "03.txt": "08b1188842a19921dd22212d575e345886e1ad01426766f416da04072d45e420"
+    }
+  },
+  "limitations": [
+    "PnP7 means the file at 71f6969; the same function name changed in later commits.",
+    "PnP7 does not execute the published bias-eliminated initial estimate or covariance-whitened refinement.",
+    "PnP11 also has equation-to-code details that need author confirmation; this is not a certified implementation of every published equation.",
+    "Agreement with printed rounding does not establish method conformance or execution provenance.",
+    "These comparisons do not replace the published tables or independently rerun all baseline algorithms.",
+    "Oxford, simulation, frontend and erratic-motion experiments are outside this evidence."
+  ]
+}

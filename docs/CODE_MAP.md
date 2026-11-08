@@ -1,10 +1,12 @@
 # Paper-to-Code Map
 
+This is a navigation guide to the released implementation, not verification that every code path implements the published equations exactly or generated the reported tables. Historical PnP variants differ materially. See [reproducibility status](REPRODUCIBILITY.md) for confirmed results and outstanding checks.
+
 ## CurrentFeature Odometry Runner
 
 - `scripts/run_kitti_currentfeature.m`
 
-Consumes exported OV2SLAM data, tracks each ordinary frame relative to the latest keyframe, runs Bias-Eli-W PnP, triggers local epipolar BA at new keyframes, composes the trajectory, and reports ATE/RPE.
+Consumes exported OV2SLAM data, tracks each current frame relative to the latest keyframe, runs Bias-Eli-W PnP, triggers local epipolar BA at new keyframes, composes the trajectory, and reports ATE/RPE.
 
 ## Triangulation and Uncertainty
 
@@ -21,9 +23,9 @@ Implements the linear least-squares stereo triangulation and first-order uncerta
 
 The main wrapper performs:
 
-1. stereo triangulation from keyframe left/right matches,
-2. feature-noise variance estimation,
-3. L1-norm PnP sorting for outlier rejection,
+1. initial stereo triangulation from keyframe left/right matches using unit noise variance,
+2. L1-norm PnP sorting and rejection of the worst 10% of matches,
+3. feature-noise variance estimation and triangulation covariance recomputation on the retained matches,
 4. bias-eliminated EIV PnP,
 5. weighted LM refinement with a truncated least-squares residual.
 
